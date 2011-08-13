@@ -44,6 +44,13 @@ static bool NodeLessThan( struct CBOQNode &n1, struct CBOQNode &n2 )
 	[super dealloc];
 }
 
+- (void)finalize
+{
+    free( mObjs );
+    
+    [super finalize];
+}
+
 #pragma mark -
 
 - (void)buildheap

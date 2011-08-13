@@ -125,6 +125,15 @@ static void *Watchdog( void *ctx )
 	[super dealloc];
 }
 
+- (void)finalize
+{
+	pthread_mutex_destroy( &mMutex );
+	pthread_cond_destroy( &mHasItemsCond );
+	pthread_cond_destroy( &mCompletedCond );
+    
+    [super finalize];
+}
+
 - (void)push: (id)obj
 {
 	PTHREAD_ERROR_CHECK( pthread_mutex_lock( &mMutex ) );
