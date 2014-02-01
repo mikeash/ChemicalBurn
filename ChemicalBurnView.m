@@ -506,7 +506,7 @@ static const int kPackageGenerateInterval = 60;
 {
     [super startAnimation];
     
-	mStepTimer = [NSTimer scheduledTimerWithTimeInterval: 0 target: self selector: @selector( step ) userInfo: nil repeats: YES];
+	mStepTimer = [NSTimer scheduledTimerWithTimeInterval: 1./30 target: self selector: @selector( step ) userInfo: nil repeats: YES];
     
 	[self generateNodes];
 	if( mCreateDestroyNodes && mHasPackageOfDeath )
